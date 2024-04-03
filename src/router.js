@@ -1,13 +1,22 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
-import Home from './components/Home.vue'
-import About from './components/About.vue'
 
 const router = createRouter({
     history: createWebHashHistory(),
     routes: [
-        {path: '/home', component: Home},
-        {path: '/about', component: About}
-    ]
+        {path: '/', redirect: '/home'},
+        {path: '/home', component: () => import('./components/Home.vue')},
+        {
+            path: '/movie', component: () => import('./components/moview.vue'),
+            children:[
+                {path: '/id', component: () => import('./components/movieDetail.vue')}
+            ] 
+        },
+        {
+            path: '/about', component: () => import('./components/About.vue'),
+            children: [
+                {path: 'tab1', component: () => import('./components/pages/tab1.vue')},
+                {path: 'tab2', component: () => import('./components/pages/tab2.vue')}]
+        }]
 })
 
 export default router
