@@ -111,11 +111,11 @@ export default {
         }
     },
     methods: {
-        selectFunc(index) {
-            let strs = ["七", "八", "九"]
-            let rank = strs[Math.floor(index-1) / 3]
-            this.desc = '${rank}年纪${((index-1) % 3) + 1}班学生统计'
-        }
+        // selectFunc(index) {
+        //     let strs = ["七", "八", "九"]
+        //     let rank = strs[Math.floor(index-1) / 3]
+        //     this.desc = '${rank}年纪${((index-1) % 3) + 1}班学生统计'
+        // }
     }
 }
 </script>
