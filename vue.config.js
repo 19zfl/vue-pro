@@ -4,6 +4,16 @@ module.exports = defineConfig({
 })
 module.exports = {
   devServer: {
-    port: 8000
+    port: 8000,
+    proxy: {
+      '/myApi': {
+        target: 'http://apis.juhe.cn/',
+        changeOrigin: true,
+        secure: false,
+        pathRewrite: {
+          '^/myApi': ''
+        }
+      }
+    }
   }
 }
